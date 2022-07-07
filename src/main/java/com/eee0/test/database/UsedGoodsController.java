@@ -17,9 +17,9 @@ public class UsedGoodsController {
 	private UsedGoodsBO usedGoodsBO; 
 	
 	// used goods 안에 있는 모든 내용을 json 으로 전달한다
-	@RequestMapping("/database/ex01/1")
+	@RequestMapping("/database/test01/1")
 	@ResponseBody
-	public List<UsedGoods> ex01() {
+	public List<UsedGoods> test01() {
 		
 		List<UsedGoods>list = usedGoodsBO.getUsedGoodsList();
 		
