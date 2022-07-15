@@ -8,7 +8,7 @@
   	
   	<insert id="insertRealtor" parameterType="com.eee0.test.realtor.model.Realtor"
   	useGeneratedKeys="true" keyProperty="id">
-  		INSERT INTO
+  		INSERT INTO `realtor`
   		(
   			`office`
   			, `phoneNumber`

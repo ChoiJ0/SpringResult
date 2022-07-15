@@ -7,6 +7,6 @@ import com.eee0.test.realtor.model.Realtor;
 @Repository
 public interface RealtorDAO {
 
-	public int insertRealor(Realtor realtor);
+	public int insertRealtor(Realtor realtor);
 	
 }
