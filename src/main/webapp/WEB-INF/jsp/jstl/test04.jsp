@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>2. JSTL 응용하기</title>
+<title>1. JSTL Formatter 숫자, 비율</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -15,36 +16,27 @@
 <body>
 	
 	<div class="container">
-		<h1>멤버십</h1>
-		<table class="table text-center">
+		<h1>1. 후보자 득표율</h1>
+		<table class="table text-center">	
 			<thead>
 				<tr>
-					<th>이름</th>
-					<th>전화 번호</th>
-					<th>등급</th>
-					<th>포인트</th>
+					<th>기호</th>
+					<th>득표 수</th>
+					<th>득표 율</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="mem" items="${members}">
-				<tr>
-					<td>${mem.name}</td>
-					<td>${mem.phoneNumber}</td>
-					<c:choose>
-						<c:when test="${mem.grade eq 'VIP'}"><td class="text-danger">${mem.grade}</td></c:when>
-						<c:when test="${mem.grade eq 'GOLD'}"><td class="text-warning">${mem.grade}</td></c:when>
-						<c:otherwise><td>${mem.grade}</td></c:otherwise>
-					</c:choose>
-					<c:choose>
-						<c:when test="${mem.point ge 5000 }"><td class="text-primary">${mem.point}P</td></c:when>
-						<c:otherwise><td>${mem.point}P</td></c:otherwise>
-					</c:choose>
-				</tr>
+				<c:forEach var="cand" items="${vote}" varStatus="status">
+					<tr>
+						<td>${status.count}</td>
+						<td><fmt:formatNumber value="${cand}"/></td>
+						<td><fmt:formatNumber value="0000.${cand}" type="percent" /></td>
+<%-- 						<td><fmt:formatNumber value="${cand / 1000000}" type="percent" /></td> --%>
+					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	
-	
+
 </body>
 </html>
