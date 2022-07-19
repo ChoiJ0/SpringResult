@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.eee0.test.jstl.model.Member;
+
 @Controller
 @RequestMapping("/jstl")
 public class JSTLController {
@@ -127,11 +129,7 @@ public class JSTLController {
 	}
 	
 	@GetMapping("/test06")
-	public String test06() {
-		
-		List<String> member = new ArrayList<>();
-		
-		member.Name();
+	public String test06(Model model) {
 		
 		List<Member> members = new ArrayList<>();
 
@@ -182,6 +180,8 @@ public class JSTLController {
 		member.setEmail("yellowbug@naver.com");
 		member.setIntroduce("내 수염 좀 멋있는 듯");
 		members.add(member);
+		
+		model.addAttribute("member", members);
 		
 		return "/jstl/test06"; 
 	}
