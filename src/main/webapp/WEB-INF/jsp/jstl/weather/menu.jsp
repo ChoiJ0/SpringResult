@@ -8,15 +8,18 @@
 </head>
 <body>
 	<div class="menu">
-		<nav class="w-25">
-			<ul class="nav">
-				<li class="nav-item"><a href="#" class="nav-link">날씨</a><li>
-				<li class="nav-item"><a href="#" class="nav-link">날씨입력</a><li>
-				<li class="nav-item"><a href="#" class="nav-link">테마날씨</a><li>
-				<li class="nav-item"><a href="#" class="nav-link">관측 기후</a><li>
+		<div class="side text-center mt-2">
+			<img src="/weather/image/logo.png" width="100">
+		</div>
+		<nav class="mt-3">
+			<ul class="nav d-flex flex-column">
+				<li class="nav-item"><a href="/jstl/weather/weatherPage" class="nav-link text-white font-weight-bold">날씨</a><li>
+				<li class="nav-item"><a href="/jstl/weather/weatherInput" class="nav-link text-white font-weight-bold">날씨입력</a><li>
+				<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">테마날씨</a><li>
+				<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">관측 기후</a><li>
 			</ul>			
 		</nav>
-	</div>
+	</div>	
 	
 </body>
 </html>

@@ -9,6 +9,8 @@ import com.eee0.test.jstl.model.Weatherhistory;
 @Repository
 public interface WeatherhistoryDAO {
 
-	List<Weatherhistory> weatherhistoryByList();
+	List<Weatherhistory> selectWeatherhistoryByList();
 
+	int insertWeatherInput(Weatherhistory weatherhistory);
+	
 }

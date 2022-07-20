@@ -13,9 +13,15 @@ public class WeatherhistoryBO {
 
 	@Autowired WeatherhistoryDAO weatherhistoryDAO;
 	
-	public List<Weatherhistory> weatherhistoryByList() {
+	public List<Weatherhistory> getWeatherhistoryByList() {
 		
-		return weatherhistoryDAO.weatherhistoryByList();
+		return weatherhistoryDAO.selectWeatherhistoryByList();
+		
+	}
+	
+	public int addWeatherInput(Weatherhistory weatherhistory) {
+		
+		return weatherhistoryDAO.insertWeatherInput(weatherhistory);
 		
 	}
 

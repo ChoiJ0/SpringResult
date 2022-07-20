@@ -6,7 +6,7 @@
   
   <mapper namespace="com.eee0.test.jstl.dao.WeatherhistoryDAO">
   	
-  	<select id="weatherhistoryByList" resultType="com.eee0.test.jstl.model.Weatherhistory">
+  	<select id="selectWeatherhistoryByList" resultType="com.eee0.test.jstl.model.Weatherhistory">
 	
 	SELECT
 		`id`
@@ -21,5 +21,32 @@
 	FROM `weatherhistory`
   		
   	</select>
+  	
+  	<insert id="insertWeatherInput" parameterType="com.eee0.test.jstl.model.Weatherhistory">
+  		INSERT INTO `weatherhistory`
+  		(
+  		`date`
+  		, `weather`
+  		, `temperatures`
+  		, `precipitation`
+  		, `microDust`
+  		, `windSpeed`
+  		, `createdAt`
+		, `updatedAt`
+  		)
+  		VALUES
+  		(
+  		 #{date}
+  		 , #{weather}
+  		 , #{temperatures}
+  		 , #{precipitation}
+  		 , #{microDust}
+  		 , #{windSpeed}
+  		 , now()
+  		 , now()
+  		)
+  		
+  	</insert>
+  	
   	
   </mapper>

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>    
+<%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,51 +17,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-<%-- 	<jsp:include page="menu.jsp"/> --%>
 
-	<div class="container">
+	<div class="container mt-5">
 		<section class="d-flex">
-			<div class="menu">
-				<div class="side text-center mt-2">
-					<img src="/weather/image/logo.png" width="100">
-				</div>
-				<nav class="mt-3">
-					<ul class="nav d-flex flex-column">
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">날씨</a><li>
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">날씨입력</a><li>
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">테마날씨</a><li>
-						<li class="nav-item"><a href="#" class="nav-link text-white font-weight-bold">관측 기후</a><li>
-					</ul>			
-				</nav>
-			</div>
-			<div>
-				<h3>과거 날씨</h3>
-				<table class="table">
-					<thead>
-						<tr>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-					
-					</tbody>
-				</table>
-			</div>
+			<jsp:include page="menu.jsp"/>
+			<jsp:include page="section.jsp"/>
 		</section>	
-		<footer class="d-flex text-justify">
-			<div><img src="/weather/image/footerLogo.png" width="150"></div>
-			<div class="font-weight-light text-muted mt-3 font-size">
-				(07062) 서울시 동작구 여의대방로16길 61 <br>
-				Copyright@2020 KMA. All Rights RESERVED.
-			</div>
-		</footer>
-		
-		
+		<jsp:include page="footer.jsp"/>
 	</div>
 	
 	
