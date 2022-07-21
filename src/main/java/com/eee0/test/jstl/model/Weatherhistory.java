@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Weatherhistory {
 	
 	private int id;
-	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date date;
 	private String weather;
 	private double temperatures;

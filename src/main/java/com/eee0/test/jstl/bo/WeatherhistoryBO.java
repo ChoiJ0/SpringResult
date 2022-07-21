@@ -13,12 +13,14 @@ public class WeatherhistoryBO {
 
 	@Autowired WeatherhistoryDAO weatherhistoryDAO;
 	
+	// 날씨 정보 리스트 가져오기
 	public List<Weatherhistory> getWeatherhistoryByList() {
 		
 		return weatherhistoryDAO.selectWeatherhistoryByList();
 		
 	}
 	
+	// 날씨 정보 입력하기
 	public int addWeatherInput(Weatherhistory weatherhistory) {
 		
 		return weatherhistoryDAO.insertWeatherInput(weatherhistory);

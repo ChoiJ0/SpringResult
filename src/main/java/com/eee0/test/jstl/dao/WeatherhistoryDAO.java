@@ -8,9 +8,22 @@ import com.eee0.test.jstl.model.Weatherhistory;
 
 @Repository
 public interface WeatherhistoryDAO {
-
-	List<Weatherhistory> selectWeatherhistoryByList();
-
-	int insertWeatherInput(Weatherhistory weatherhistory);
+	
+	// 날씨 정보 모두 가져오기
+	public List<Weatherhistory> selectWeatherhistoryByList();
+	
+	// 날씨 정보 삽입
+	public int insertWeatherInput(Weatherhistory weatherhistory);
+	
+//	public int insertWeatherInput(
+//			@Param("date") String date
+//			, @Param("weather") String weather
+//			, @Param("temperatures") double temperatures
+//			, @Param("precipitation") double precipitation
+//			, @Param("microDust") String microDust
+//			, @Param("windSpeed") double windSpeed
+//			);
+	
+	
 	
 }
