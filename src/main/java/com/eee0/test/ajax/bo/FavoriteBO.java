@@ -20,8 +20,20 @@ public class FavoriteBO {
 	
 	public int addFavoriteInsert(Favorite favorite) {
 		
-		return favoriteDAO.InsertFavorite(favorite);
+		return favoriteDAO.insertFavorite(favorite);
 	}
 
+	public boolean isDuplicateName(String url) {
+		
+		return favoriteDAO.selectCountByName(url) != 0;
+		
+	}
+
+	public int favoriteDelete(String id) {
+		
+		return favoriteDAO.deleteFavorite(id);
+	}
+	
+	
 
 }

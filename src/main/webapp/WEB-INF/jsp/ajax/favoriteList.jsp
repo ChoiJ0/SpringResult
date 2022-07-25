@@ -29,11 +29,20 @@
 					<td>${status.count}</td>
 					<td>${list.name}</td>
 					<td>${list.url}</td>
+					<td><button type="button" class="btn btn-danger btn-sm">삭제</button></td>
 				</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 	
+	
+	<script>
+		$(document).on("click", function(){
+			
+			
+		});	
+	
+	</script>
 </body>
 </html>

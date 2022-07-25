@@ -21,7 +21,11 @@
 			</div>
 			<div class="form-group">
 				<label>주소</label>
-			    <input type="text" class="form-control" id="addrInput">
+				<div class="d-flex">
+			    	<input type="text" class="form-control" id="addrInput"> <button type="button" id="duplicateBtn" class="btn btn-primary ml-3">중복확인</button>
+				</div>
+			    <small id="dep_true" class="form-text text-danger">중복된 url 입니다.</small>
+			    <small id="dep_false" class="form-text text-danger">저장 가능한 url 입니다.</small>
 			</div>
 			<button type="button" class="btn btn-success btn-block " id="addBtn">추가</button>
 		</div>
@@ -29,6 +33,45 @@
 	
 	<script>
 		$(document).ready(function(){
+			$("#dep_true").hide();
+			$("#dep_false").hide();
+			
+			$("#duplicateBtn").on("click", function(){
+				let url = $("#addrInput").val();
+				
+				if(url == "") {
+					$("#dep_false").hide();
+					$("#dep_true").hide();
+				}
+				
+				if(url == ""){
+					alert("주소를 입력해주세요.");
+					return false;
+				}
+				
+				
+				$.ajax({
+					type:"get",
+					url:"/ajax/is_duplicate",
+					data:{"url": url},
+					success:function(data) {
+						
+						if (data.is_duplicate) {
+							$("#dep_true").show();
+							$("#dep_false").hide();
+						} else {
+							$("#dep_false").show();
+							$("#dep_true").hide();
+						}
+						
+					},
+					error:function() {
+						alert("에러발생!");
+					}
+					
+				});
+				
+			});
 			
 			$("#addBtn").on("click", function() {
 				let name = $("#titleInput").val();

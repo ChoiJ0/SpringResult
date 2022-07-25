@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.eee0.test.ajax.bo.FavoriteBO;
@@ -56,5 +57,26 @@ public class FavoriteController {
 		return result;
 		
 	}
+	
+	@GetMapping("is_duplicate")
+	@ResponseBody
+	public Map<String, Boolean> isDuplicate(@RequestParam("url") String url){
+		
+		Map<String, Boolean> result = new HashMap<>();
+		
+		result.put("is_duplicate", favoriteBO.isDuplicateName(url));
+		
+		return result;
+	}
+	
+	@PostMapping("delete")
+	@ResponseBody
+	public String favoriteDelete(@RequestParam("id") String id) {
+		
+		favoriteBO.favoriteDelete(id);
+		
+		return "rediret:/ajax/list"; 
+	}
+	
 	
 }
