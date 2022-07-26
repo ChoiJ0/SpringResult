@@ -29,7 +29,7 @@ public class FavoriteBO {
 		
 	}
 
-	public int favoriteDelete(String id) {
+	public int favoriteDelete(int id) {
 		
 		return favoriteDAO.deleteFavorite(id);
 	}

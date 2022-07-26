@@ -22,10 +22,11 @@
 			<div class="form-group">
 				<label>주소</label>
 				<div class="d-flex">
-			    	<input type="text" class="form-control" id="addrInput"> <button type="button" id="duplicateBtn" class="btn btn-primary ml-3">중복확인</button>
+			    	<input type="text" class="form-control" id="addrInput"> 
+			    	<button type="button" id="duplicateBtn" class="btn btn-primary ml-3">중복확인</button>
 				</div>
 			    <small id="dep_true" class="form-text text-danger">중복된 url 입니다.</small>
-			    <small id="dep_false" class="form-text text-danger">저장 가능한 url 입니다.</small>
+			    <small id="dep_false" class="form-text text-success">저장 가능한 url 입니다.</small>
 			</div>
 			<button type="button" class="btn btn-success btn-block " id="addBtn">추가</button>
 		</div>
@@ -36,13 +37,24 @@
 			$("#dep_true").hide();
 			$("#dep_false").hide();
 			
-			$("#duplicateBtn").on("click", function(){
+			var isCheckDuplicate = false;
+			var isDuplicate = false;
+			
+			$("#addrInput").on("input", function(){
 				let url = $("#addrInput").val();
+				
+				isCheckDuplicate = false;
+				isDuplicate = false;
 				
 				if(url == "") {
 					$("#dep_false").hide();
 					$("#dep_true").hide();
 				}
+				
+			});
+			
+			$("#duplicateBtn").on("click", function(){
+				let url = $("#addrInput").val();
 				
 				if(url == ""){
 					alert("주소를 입력해주세요.");
@@ -56,12 +68,21 @@
 					data:{"url": url},
 					success:function(data) {
 						
+						isCheckDuplicate = true;
 						if (data.is_duplicate) {
+							isDuplicate = true;
+							
 							$("#dep_true").show();
 							$("#dep_false").hide();
+// 							$("#dupliacateDiv").removeClass("d-none");
+// 							$("#availabeleDiv").addClass("d-none");
 						} else {
+							isDuplicate = false;
+							
 							$("#dep_false").show();
 							$("#dep_true").hide();
+// 							$("#availabeleDiv").removeClass("d-none");
+// 							$("#dupliacateDiv").addClass("d-none");
 						}
 						
 					},
@@ -91,6 +112,19 @@
 					alert("프로토콜을 입력해주세요.");
 					return false;
 				}
+				
+				//중복 확인 진행
+				if(isCheckDuplicate == false) {
+					alert("중복 체크 하세요.");
+					return false;
+				}
+				
+				// 중복된 상태인지
+				if(isDuplicate){
+					alert("url이 중복되었습니다.");
+					return false;
+				}
+				
 				
 				$.ajax({
 					type:"post",

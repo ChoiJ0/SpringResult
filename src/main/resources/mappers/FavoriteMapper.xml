@@ -51,7 +51,7 @@
   		
   	</select>
   	
-  	<delete id="deleteFavorite" parameterType="string">
+  	<delete id="deleteFavorite" parameterType="int">
 
 		DELETE 
 			 

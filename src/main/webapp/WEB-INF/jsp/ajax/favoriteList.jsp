@@ -29,7 +29,9 @@
 					<td>${status.count}</td>
 					<td>${list.name}</td>
 					<td>${list.url}</td>
-					<td><button type="button" class="btn btn-danger btn-sm">삭제</button></td>
+					<td>
+						<button type="button" class="btn btn-danger btn-sm del-Btn" id-index="${list.id}">삭제</button>
+					</td>
 				</tr>
 				</c:forEach>
 			</tbody>
@@ -38,11 +40,36 @@
 	
 	
 	<script>
-		$(document).on("click", function(){
+		$(document).ready(function() {
 			
+			$(".del-Btn").on("click", function(){
+				let id = $(this).attr("id-index");
+				
+				$.ajax({
+					type:"post",
+					url:"/ajax/delete",
+					data:{"id": id},
+					success:function(data){
+						
+						if(data.result == "success") {
+							location.href = "/ajax/list";
+						} else {
+							alert("삽입에러");
+						}
+						
+					},
+					error(){
+						
+					}
+					
+				});
+				
+				
+				
+			});			
 			
-		});	
-	
+		});
+		
 	</script>
 </body>
 </html>

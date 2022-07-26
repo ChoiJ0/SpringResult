@@ -71,11 +71,19 @@ public class FavoriteController {
 	
 	@PostMapping("delete")
 	@ResponseBody
-	public String favoriteDelete(@RequestParam("id") String id) {
+	public Map<String, String> favoriteDelete(@RequestParam("id") int id) {
 		
-		favoriteBO.favoriteDelete(id);
+		int count = favoriteBO.favoriteDelete(id);
 		
-		return "rediret:/ajax/list"; 
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+			
+		return result;
 	}
 	
 	

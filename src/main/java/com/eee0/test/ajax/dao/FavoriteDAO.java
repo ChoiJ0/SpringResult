@@ -16,7 +16,7 @@ public interface FavoriteDAO {
 
 	public int selectCountByName(@Param("url") String url);
 
-	public int deleteFavorite(@Param("id")String id);
+	public int deleteFavorite(@Param("id")int id);
 
 
 }
