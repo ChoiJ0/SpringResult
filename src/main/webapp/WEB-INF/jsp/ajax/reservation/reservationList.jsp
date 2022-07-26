@@ -13,16 +13,7 @@
 </head>
 <body>
 	
-	<div class="container">
-		<header>
-			<div>
-				<div class="display-4">통나무 팬션</div>
-			</div>		
-			<nav>
-			
-			</nav>
-		</header>
-	</div>
+	
 	
 </body>
 </html>

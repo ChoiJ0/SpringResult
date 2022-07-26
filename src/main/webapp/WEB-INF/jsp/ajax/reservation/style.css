@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    height: 100px;
+}
+
+
+section {
+    width: 1200px;
+}
+
+
+footer {
+    height: 70px;
+}
+
+.color-peru {
+    background-color: peru;
+}
+
+.color-brown {
+ background-color: rgb(146, 67, 10);
+}
+
+.color-white {
+    color: white;
+}
+
+.main-menu {
+    height: 40px;
+}
+
+.main-link:hover {
+    color: gray;
+}

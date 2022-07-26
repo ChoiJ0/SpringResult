@@ -8,12 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/ajax/reservation")
 public class ReservationController {
 
-	@GetMapping("/list")
-	public String reservation() {
+	@GetMapping("/main")
+	public String reservationMain() {
 		
-		return "/ajax/reservationList";
+		return "/ajax/reservation/reservationMain";
 	}
 	
+	@GetMapping("/list")
+	public String reservationList() {
+		
+		return "/ajax/reservation/reservationList";
+	}
+	
+	@GetMapping("/input")
+	public String reservationInput() {
+		
+		return "/ajax/reservation/reservationInput";
+	}
 	
 	
 }
