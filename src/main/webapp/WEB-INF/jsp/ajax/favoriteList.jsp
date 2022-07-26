@@ -30,7 +30,7 @@
 					<td>${list.name}</td>
 					<td>${list.url}</td>
 					<td>
-						<button type="button" class="btn btn-danger btn-sm del-Btn" id-index="${list.id}">삭제</button>
+						<button type="button" class="btn btn-danger btn-sm del-Btn" data-id-index="${list.id}">삭제</button>
 					</td>
 				</tr>
 				</c:forEach>
@@ -43,23 +43,24 @@
 		$(document).ready(function() {
 			
 			$(".del-Btn").on("click", function(){
-				let id = $(this).attr("id-index");
+// 				let id = $(this).attr("id-index");
+				let favoriteId = $(this).data("id-index");
 				
 				$.ajax({
 					type:"post",
 					url:"/ajax/delete",
-					data:{"id": id},
+					data:{"id": favoriteId},
 					success:function(data){
 						
 						if(data.result == "success") {
-							location.href = "/ajax/list";
+							location.reload();
 						} else {
-							alert("삽입에러");
+							alert("삭제실패!");
 						}
 						
 					},
 					error(){
-						
+						alert("에러발생!");
 					}
 					
 				});
