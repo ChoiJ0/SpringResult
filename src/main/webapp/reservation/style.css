@@ -38,3 +38,7 @@ footer {
 .main-link:hover {
     color: gray;
 }
+
+.size {
+	width: 700px;
+}
